@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 
 import {PetInputComponent} from './pet/pet-input.component';
 import {PetService} from './pet/pet.service';
+import {PetListComponent} from './pet/pet-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PetInputComponent
+    PetInputComponent,
+    PetListComponent
   ],
   imports: [
     BrowserModule,

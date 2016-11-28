@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
     {{title}}
   </h1>
   <pet-input></pet-input>
+  <pet-list></pet-list>
   `,
   styles: [`h1 {color:lightblue;}`]
 })
