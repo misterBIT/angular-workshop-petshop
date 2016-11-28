@@ -5,9 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import {PetInputComponent} from './pet/pet-input.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PetInputComponent
   ],
   imports: [
     BrowserModule,

@@ -6,9 +6,10 @@ import { Component } from '@angular/core';
   <h1>
     {{title}}
   </h1>
+  <pet-input></pet-input>
   `,
-  styles: []
+  styles: [`h1 {color:lightblue;}`]
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Pet Shop';
 }
