@@ -3,8 +3,8 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'pet-input',
   template: `
-    <input type="text" placeholder="Pet Name" />
-    <button>Add Pet</button>
+    <input type="text" placeholder="Pet Name" #petInput />
+    <button (click)="addPet(petInput.value)">Add Pet</button>
   `
 })
 export class PetInputComponent {
