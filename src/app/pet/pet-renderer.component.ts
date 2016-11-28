@@ -2,15 +2,13 @@ import {Component, Input} from '@angular/core';
 import {PetModel} from './pet.model';
 @Component({
   selector: 'pet-renderer',
-  styles: [`img {max-height:100px;}`],
+  styles: [`img {max-height:100px;}
+.awake {color:orange}`],
   template: `
           <div class="pet-renderer">
-            <span class="petName">{{pet.name}}</span>
+            <span [class.awake]="pet.awake" class="petName">{{pet.name}}</span>
             <input type="checkbox" [(ngModel)]="pet.awake">
             <img [src]="pet.imgUrl"/>
-            <p [hidden]="!pet.awake">
-               Pet is awake
-            </p>
           </div>`
 })
 export class PetRendererComponent {
