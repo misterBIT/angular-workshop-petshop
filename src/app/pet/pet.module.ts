@@ -6,10 +6,11 @@ import {PetService} from './pet.service';
 import {SharedModule} from '../shared/shared.module';
 import {PetSearchPipe} from './pet-search.pipe';
 import {TimeModule} from '../time/time.module';
+import {PetFilterComponent} from './pets-filter.component';
 
 @NgModule({
   providers: [PetService],
-  declarations: [PetInputComponent, PetSearchPipe,
+  declarations: [PetInputComponent, PetSearchPipe,PetFilterComponent,
     PetListComponent,
     PetRendererComponent],
   imports: [SharedModule,TimeModule],

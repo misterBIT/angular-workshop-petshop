@@ -8,13 +8,7 @@ import {FilterObject} from './pet.model';
   template: `
     <section>
       <h2>Pet List</h2>
-      <letter-selector  [letter]="filter.letter" (select)="changeFilterLetter($event)"></letter-selector>
-      <div>
-      Show:
-      <label>All<input type="radio" name="awake" [checked]="filter.awake===null" [value]="null" (change)="changeAwakeFilter(null)"></label>    
-      <label>Asleep<input type="radio" name="awake" [checked]="filter.awake===false" [value]="false" (change)="changeAwakeFilter(false)"></label>    
-      <label>Awake<input type="radio" name="awake" [checked]="filter.awake===true" [value]="true" (change)="changeAwakeFilter(true)"></label>    
-  </div>
+      <pet-filter (filterChange)="filter = $event" ></pet-filter>
       <ul>
         <li *ngFor="let currPet of petService.pets| petSearch:filter">
           <pet-renderer (feed)="petService.feed(currPet)" (awakeChange)="petService.toggleAwake(currPet)" [pet]="currPet"></pet-renderer>
@@ -24,20 +18,11 @@ import {FilterObject} from './pet.model';
   `
 })
 export class PetListComponent {
-
   filter: FilterObject = {
     letter: 'a',
     awake: null
   };
 
   constructor(private petService: PetService) {
-  }
-
-  changeFilterLetter(letter) {
-    this.filter = Object.assign({}, this.filter, {letter});
-  }
-
-  changeAwakeFilter(awake) {
-    this.filter = Object.assign({}, this.filter, {awake});
   }
 }
