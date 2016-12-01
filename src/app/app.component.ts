@@ -9,8 +9,8 @@ import {Component} from '@angular/core';
     </span>
     {{title}}
   </h1>
-  <pet-input></pet-input>
   <pet-list></pet-list>
+  <pet-input></pet-input>
   `,
   styles: [`
 h1 {color:lightblue;}
