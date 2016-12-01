@@ -5,7 +5,7 @@ export class PetModel {
   id: number;
   name: string;
   awake: boolean;
-  lastFed:number;
+  lastFed: number;
 
   get imgUrl(): string {
     return `assets/pet/${this.id}.png`;
@@ -35,3 +35,7 @@ export class PetModel {
 }
 
 
+export interface FilterObject {
+  letter: string;
+  awake: boolean | null;
+}
