@@ -4,10 +4,10 @@ import {FilterObject} from './pet.model';
 
 @Component({
   selector: 'pet-filter',
-  styles: [],
+  styles: [`.awakeWrapper {    margin-left: 45px;}`],
   template: `
       <letter-selector  [letter]="filter.letter" (select)="changeFilterLetter($event)"></letter-selector>
-      <div>
+      <div class="awakeWrapper">
         Show:
         <label>All<input type="radio" name="awake" [checked]="filter.awake===null" [value]="null" (change)="changeAwakeFilter(null)"></label>    
         <label>Asleep<input type="radio" name="awake" [checked]="filter.awake===false" [value]="false" (change)="changeAwakeFilter(false)"></label>    
