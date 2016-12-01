@@ -11,4 +11,11 @@ export class PetService {
     this.pets = [...this.pets, pet];
     console.log('pet added', this.pets);
   }
+
+
+  toggleAwake(pet) {
+    pet.toggle();
+    // not a must for now, but if your pipe will filter by awake..
+    this.pets = [...this.pets];
+  }
 }
