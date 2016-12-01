@@ -32,13 +32,16 @@ export class CountdownComponent implements OnInit,OnDestroy,OnChanges {
   }
 
   countDown() {
-    this.countDownInterval = setInterval(() => {
-      this.calcTimeRemaing();
-      if (this.timeLeft <= 0) {
-        clearInterval(this.countDownInterval);
-        this.due.emit({});
-      }
-    }, 1000);
+    this.calcTimeRemaing();
+    if (this.timeLeft > 0) {
+      this.countDownInterval = setInterval(() => {
+        this.calcTimeRemaing();
+        if (this.timeLeft <= 0) {
+          clearInterval(this.countDownInterval);
+          this.due.emit({});
+        }
+      }, 1000);
+    }
   }
 
   ngOnInit() {
