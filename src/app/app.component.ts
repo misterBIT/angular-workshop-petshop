@@ -3,6 +3,9 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
+  <span style="float: right" >
+        <curr-time></curr-time>
+  </span>
   <h1>
     <span class="logo">
     <img src="assets/pet/1.png"/>
