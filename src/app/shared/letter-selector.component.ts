@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import {Component, Output, EventEmitter, Input} from '@angular/core';
 
 @Component({
     selector: 'letter-selector',
@@ -6,7 +6,7 @@ import {Component, Output, EventEmitter} from '@angular/core';
     template: `
     <ul>
         <li *ngFor="let letter of letters">
-            <button [class.selected]="letter === letterSelected" (click)="selectLetter(letter)">{{letter}}</button>
+            <button [class.selected]="letter.toLowerCase() === letterSelected.toLowerCase()" (click)="selectLetter(letter)">{{letter}}</button>
         </li>
     </ul>
     `
@@ -14,7 +14,7 @@ import {Component, Output, EventEmitter} from '@angular/core';
 export class LetterSelectorComponent {
     @Output('select') selectEmitter = new EventEmitter(); // inputs/outputs can be renamed
     letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    letterSelected = '';
+    @Input('letter') letterSelected = '';
 
     selectLetter(letter : string) {
         if (this.letterSelected === letter) this.letterSelected = '';
