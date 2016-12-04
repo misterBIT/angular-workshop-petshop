@@ -1,6 +1,6 @@
 import {Component, Output, EventEmitter, Input} from '@angular/core';
-import {PetService} from './pet.service';
 import {FilterObject} from './pet.model';
+declare type FilterObj = FilterObject;
 
 @Component({
   selector: 'pet-filter',
@@ -17,8 +17,8 @@ import {FilterObject} from './pet.model';
 })
 export class PetFilterComponent {
 
-  @Output() filterChange = new EventEmitter<FilterObject>();
-  @Input() filter: FilterObject = {
+  @Output() filterChange = new EventEmitter<FilterObj>();
+  @Input() filter: FilterObj = {
     letter: 'a',
     awake: null
   };
