@@ -1,6 +1,6 @@
 import {Component, Output, EventEmitter, Input} from '@angular/core';
-import {PetService} from './pet.service';
 import {FilterObject} from './pet.model';
+declare type FilterObj = FilterObject; // silly hack to stop the TS compiler from complaining (a TS/webpack/ts-loader bug)
 
 @Component({
   selector: 'pet-filter',
@@ -15,10 +15,11 @@ import {FilterObject} from './pet.model';
       </div>
   `
 })
-export class PetFilterComponent {
 
+
+export class PetFilterComponent {
   @Output() filterChange = new EventEmitter<FilterObject>();
-  @Input() filter: FilterObject = {
+  @Input() filter: FilterObj = {
     letter: 'a',
     awake: null
   };

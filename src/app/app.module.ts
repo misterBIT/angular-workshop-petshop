@@ -13,6 +13,7 @@ import {ShopModule} from './shop/shop.module';
   imports: [
     PetModule,
     TimeModule,
+    HttpModule,
     ShopModule,
     BrowserModule,
     HttpModule
