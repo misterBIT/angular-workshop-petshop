@@ -1,20 +1,32 @@
 import {Component, OnInit} from '@angular/core';
 import {ShopService} from './shop.service';
-import {IShopItems} from './shop.types';
+import {IShopItem} from './shop.types';
 
 @Component({
   selector: 'shop-front',
-  template: `<h3>Shop</h3>
-<ul>
-<li *ngFor="let item of items">{{item.title}} - <span>{{item.price|currency}}</span></li>
-</ul>`
+  styles: [`
+            .shop-container{display:flex;align-content: space-between}
+            shop-list {flex:1;} 
+            shopping-cart {flex: 0 0  200px;} 
+`],
+  template: `<h1>Shop</h1>
+<section class="shop-container">
+  <shop-list [items]="items" (purchase)="shopService.addTOCart($event)"></shop-list>
+  <shopping-cart [shoppingCart]="shopService.getCart()" (removeFromCart)="shopService.removeFromCart($event)"></shopping-cart>
+</section>`
+
 })
-export class ShopFrontComponent{
-  private items: IShopItems[];
+export class ShopFrontComponent implements OnInit {
+
+  private items: IShopItem[];
 
 
-  constructor(private storeSvc: ShopService) {
-    this.storeSvc.getItems().then((items) => {
+  constructor(private shopService: ShopService) {
+
+  }
+
+  ngOnInit() {
+    this.shopService.getItems().then((items) => {
       this.items = items;
     });
   }
