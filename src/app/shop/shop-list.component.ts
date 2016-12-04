@@ -4,12 +4,12 @@ import {IShopItem} from './shop.types';
 
 @Component({
   selector: 'shop-list',
-  template: `<ul>
-                <li *ngFor="let item of items">
+  template: `<md-list>
+                <md-list-item *ngFor="let item of items">
+                   <button md-icon-button (click)="buyItem(item)"><md-icon>add</md-icon></button>
                    {{item.title}} - <span>{{item.price|currency}}</span>
-                   <button (click)="buyItem(item)">BUY</button>
-                 </li> 
-             </ul>`
+                 </md-list-item> 
+             </md-list>`
 })
 export class ShopListComponent {
   @Input() items: IShopItem[];

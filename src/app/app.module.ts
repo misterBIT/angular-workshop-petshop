@@ -5,7 +5,8 @@ import {AppComponent} from './app.component';
 import {PetModule} from './pet/pet.module';
 import {TimeModule} from './time/time.module';
 import {ShopModule} from './shop/shop.module';
-
+import {MaterialModule} from '@angular/material';
+import 'hammerjs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,7 @@ import {ShopModule} from './shop/shop.module';
     HttpModule,
     ShopModule,
     BrowserModule,
-    HttpModule
+    MaterialModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
