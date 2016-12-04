@@ -12,6 +12,7 @@ import {Component} from '@angular/core';
     </span>
     {{title}}
   </h1>
+  <shop-front></shop-front>
   <pet-list></pet-list>
   <pet-input></pet-input>
   `,

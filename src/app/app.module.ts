@@ -4,6 +4,7 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {PetModule} from './pet/pet.module';
 import {TimeModule} from './time/time.module';
+import {ShopModule} from './shop/shop.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import {TimeModule} from './time/time.module';
   imports: [
     PetModule,
     TimeModule,
+    ShopModule,
     BrowserModule,
     HttpModule
   ],
