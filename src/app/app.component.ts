@@ -4,14 +4,21 @@ import {Component} from '@angular/core';
   selector: 'app-root',
   styles: [`
       h1 {flex: 1;color:lightblue;}
-      h1 button {    vertical-align: text-top;}
+      h1 button { vertical-align: text-top;}
       md-toolbar {align-content: space-between;}
       .md-list-item a {
               color: #1dffab;
       }
+      .right {
+          display: flex;
+      }
+      .right .loginLink {
+          flex: 1;
+          margin: 0 20px;
+      }
       .md-list-item a.active {
             text-decoration: underline;
-             color: #ff3f64;
+            color: #ff3f64;
       }
       img {width:50px;} 
   `],
@@ -23,7 +30,8 @@ import {Component} from '@angular/core';
         <img src="assets/pet/1.png"/>
         {{title}}
     </h1>
-    <span class="clock">
+    <span class="right">
+          <button class="loginLink" md-raised-button color="warn"><a  routerLink="login">Login</a></button>
           <curr-time></curr-time>
     </span>
   </md-toolbar>

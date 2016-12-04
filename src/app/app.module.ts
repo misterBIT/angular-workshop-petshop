@@ -9,6 +9,7 @@ import {MaterialModule} from '@angular/material';
 import 'hammerjs';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './app.routes';
+import {UserAuthModule} from './userAuth/user-auth.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +18,7 @@ import {appRoutes} from './app.routes';
     RouterModule.forRoot(appRoutes),
     PetModule,
     TimeModule,
+    UserAuthModule,
     HttpModule,
     ShopModule,
     BrowserModule,
