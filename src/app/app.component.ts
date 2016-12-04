@@ -4,25 +4,37 @@ import {Component} from '@angular/core';
   selector: 'app-root',
   styles: [`
       h1 {flex: 1;color:lightblue;}
+      h1 button {    vertical-align: text-top;}
       md-toolbar {align-content: space-between;}
-      .logo {float:left;}
+      .md-list-item a {
+              color: #1dffab;
+      }
+      .md-list-item a.active {
+            text-decoration: underline;
+             color: #ff3f64;
+      }
       img {width:50px;} 
   `],
   template: `
+<md-sidenav-layout>
   <md-toolbar color="primary">
     <h1>
-        <span class="logo">
+        <button md-icon-button (click)="sideNav.toggle()"><md-icon>reorder</md-icon></button>
         <img src="assets/pet/1.png"/>
-        </span>
         {{title}}
     </h1>
     <span class="clock">
           <curr-time></curr-time>
     </span>
   </md-toolbar>
-  <shop-front></shop-front>
-  <pet-list></pet-list>
-  <pet-input></pet-input>
+  <router-outlet></router-outlet>
+  <md-sidenav #sideNav>
+  <md-list>
+    <md-list-item><a routerLinkActive="active" routerLink="pets">Pets</a></md-list-item> 
+    <md-list-item><a routerLinkActive="active" routerLink="shop">Shop</a></md-list-item>
+  </md-list>
+  </md-sidenav>
+ </md-sidenav-layout>
   `,
 })
 export class AppComponent {

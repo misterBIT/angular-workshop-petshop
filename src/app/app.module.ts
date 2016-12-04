@@ -7,11 +7,14 @@ import {TimeModule} from './time/time.module';
 import {ShopModule} from './shop/shop.module';
 import {MaterialModule} from '@angular/material';
 import 'hammerjs';
+import {RouterModule} from '@angular/router';
+import {appRoutes} from './app.routes';
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     PetModule,
     TimeModule,
     HttpModule,

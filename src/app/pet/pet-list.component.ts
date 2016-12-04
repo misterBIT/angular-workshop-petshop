@@ -15,6 +15,7 @@ import {FilterObject} from './pet.model';
         </li>
       </ul>
     </section>
+    <pet-input></pet-input>
   `
 })
 export class PetListComponent {
