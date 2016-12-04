@@ -6,8 +6,9 @@ import {IShopItem} from './shop.types';
   selector: 'shop-list',
   template: `<md-list>
                 <md-list-item *ngFor="let item of items">
-                   <button md-icon-button (click)="buyItem(item)"><md-icon>add</md-icon></button>
-                   {{item.title}} - <span>{{item.price|currency}}</span>
+                  <shop-list-item-renderer [item]="item">
+                    <button md-icon-button (click)="buyItem(item)"><md-icon>add</md-icon></button>
+                  </shop-list-item-renderer>
                  </md-list-item> 
              </md-list>`
 })
