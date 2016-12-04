@@ -29,7 +29,7 @@ import {Component} from '@angular/core';
   </md-toolbar>
   <router-outlet></router-outlet>
   <md-sidenav #sideNav>
-  <md-list>
+  <md-list (click)="sideNav.close()">
     <md-list-item><a routerLinkActive="active" routerLink="pets">Pets</a></md-list-item> 
     <md-list-item><a routerLinkActive="active" routerLink="shop">Shop</a></md-list-item>
   </md-list>
