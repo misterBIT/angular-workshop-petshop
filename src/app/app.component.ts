@@ -31,7 +31,7 @@ import {Component} from '@angular/core';
         {{title}}
     </h1>
     <span class="right">
-          <button class="loginLink" md-raised-button color="warn"><a  routerLink="login">Login</a></button>
+          <button class="loginLink" md-raised-button color="warn" routerLink="login">Login</button>
           <curr-time></curr-time>
     </span>
   </md-toolbar>

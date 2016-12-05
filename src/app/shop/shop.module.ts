@@ -8,10 +8,12 @@ import {ShopListItemRendererComponent} from './shop-item.compoent';
 import {ShopItemDetails} from './shop-detail.component';
 import {RouterModule} from '@angular/router';
 import {shopRoutes} from './shop.routes';
+import {ShopAdminItemEditComponent} from '../shopAdmin/shop-admin-item-edit.component';
+import {ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   providers: [ShopService],
-  declarations: [ShopFrontComponent, ShoppingCartCompoennt, ShopListComponent, ShopListItemRendererComponent, ShopItemDetails],
-  imports: [SharedModule, RouterModule.forChild(shopRoutes)],
+  declarations: [ShopFrontComponent, ShoppingCartCompoennt, ShopListComponent, ShopListItemRendererComponent, ShopItemDetails, ShopAdminItemEditComponent],
+  imports: [SharedModule, RouterModule.forChild(shopRoutes), ReactiveFormsModule],
   exports: [ShopFrontComponent],
 })
 export class ShopModule {
