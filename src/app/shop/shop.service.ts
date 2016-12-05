@@ -10,14 +10,17 @@ import 'rxjs/add/operator/toPromise';
 export class ShopService {
   private static readonly baseUrl = 'http://localhost:3003/data/petShop';
   private shoppingCart: IShopItem[] = [];
+  private items: IShopItem[] = [];
 
   constructor(private http: Http) {
+    this.getItems()
   }
 
 
   getItems(): Promise<IShopItem[]> {
     return this.http.get(ShopService.baseUrl)
       .map(res => res.json())
+      .do(items => this.items = items)
       .toPromise();
   }
 
@@ -49,5 +52,10 @@ export class ShopService {
 
   getCart() {
     return this.shoppingCart;
+  }
+
+  getNextId(_id) {
+    let index = this.items.findIndex((i) => _id === i._id);
+    return (index === this.items.length - 1) ? this.items[0]._id : this.items[index + 1]._id;
   }
 }
