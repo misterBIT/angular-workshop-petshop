@@ -10,13 +10,17 @@ import 'hammerjs';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './app.routes';
 import {UserAuthModule} from './userAuth/user-auth.module';
+import {UserRegistrationComponent} from './userAuth/registeration.component';
+import {SharedModule} from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
+    UserRegistrationComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     PetModule,
+    SharedModule,
     TimeModule,
     UserAuthModule,
     HttpModule,

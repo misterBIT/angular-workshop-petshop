@@ -3,50 +3,65 @@ import {Router, NavigationExtras}      from '@angular/router';
 import {AuthService} from "./auth.service";
 
 @Component({
-	template: `
-    <h2>LOGIN</h2>
-    <p>{{message}}</p>
+  template: `
+    <md-card>
+    <md-card-header>
+    <md-card-title><h2>LOGIN</h2></md-card-title>
+    <md-card-subtitle><p>{{message}}</p></md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+    <form>
+    <md-input name="username" [(ngModel)]="username" placeholder="Username"></md-input>
+    <md-input name="password" [(ngModel)]="password" placeholder="Password"></md-input>
+    </form>
     <p>
       <button md-raised-button color="warn" (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
       <button md-raised-button color="warn" (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
-    </p>`
+    </p>
+</md-card-content>`
 })
 export class LoginComponent {
-	message: string;
+  message: string;
 
-	constructor(public authService: AuthService, public router: Router) {
-		this.setMessage();
-	}
+  username = '';
+  password = '';
 
-	setMessage() {
-		this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
-	}
+  constructor(public authService: AuthService, public router: Router) {
+    this.setMessage();
+  }
 
-	login() {
-		this.message = 'Trying to log in ...';
+  setMessage() {
+    this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
+  }
 
-		this.authService.login().subscribe(() => {
-			this.setMessage();
-			if (this.authService.isLoggedIn) {
-				// Get the redirect URL from our auth service
-				// If no redirect has been set, use the default
-				let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/';
+  login() {
+    this.message = 'Trying to log in ...';
 
-				// Redirect the user but keep params
-				// 				let navigationExtras: NavigationExtras = {
-				// 					preserveQueryParams: true,
-				// 					preserveFragment: true
-				// 				};
-				//
-				// 				this.router.navigate([redirect], navigationExtras);
-				this.router.navigate([redirect]);
-			}
-		});
-	}
+    this.authService.login(this.username, this.password).subscribe(() => {
+      this.setMessage();
+      if (this.authService.isLoggedIn) {
+        // Get the redirect URL from our auth service
+        // If no redirect has been set, use the default
+        let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/';
 
-	logout() {
-		this.authService.logout();
-		this.setMessage();
-	}
+        // Redirect the user but keep params
+        // 				let navigationExtras: NavigationExtras = {
+        // 					preserveQueryParams: true,
+        // 					preserveFragment: true
+        // 				};
+        //
+        // 				this.router.navigate([redirect], navigationExtras);
+        this.router.navigate([redirect]);
+      }
+      else {
+        this.message = 'Login Failed!';
+      }
+    });
+  }
+
+  logout() {
+    this.authService.logout();
+    this.setMessage();
+  }
 }
 

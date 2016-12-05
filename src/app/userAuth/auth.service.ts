@@ -1,22 +1,32 @@
-import { Injectable } from '@angular/core';
-
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/delay';
+import {Http} from '@angular/http';
 
 @Injectable()
 export class AuthService {
-	isLoggedIn: boolean = false;
+  static baseUrl = 'http://localhost:3003/data/users';
+  isLoggedIn: boolean = false;
 
-	// store the URL so we can redirect after logging in
-	redirectUrl: string;
+  constructor(private http: Http) {
+  }
 
-	login() {
-		return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
-	}
+  // store the URL so we can redirect after logging in
+  redirectUrl: string;
 
-	logout() {
-		this.isLoggedIn = false;
-	}
+  login(username, password) {
+    return this.http.get(AuthService.baseUrl)
+      .map(res => res.json())
+      .map((usersList) => {
+        return Boolean(usersList.find((user) => user.username === username && user.password === password));
+      })
+      .do(val => this.isLoggedIn = val);
+  }
+
+  register(user) {
+    return this.http.post(AuthService.baseUrl, user).toPromise();
+  }
+
+  logout() {
+    this.isLoggedIn = false;
+  }
 }
