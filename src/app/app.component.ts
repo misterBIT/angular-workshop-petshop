@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {AuthService} from './userAuth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -31,8 +32,9 @@ import {Component} from '@angular/core';
         <img src="assets/pet/1.png"/>
         {{title}}
     </h1>
-    <span class="right">
+    <span class="right" *ngIf="!authService.isLoggedIn">
           <button class="loginLink" md-raised-button color="warn" routerLink="login">Login</button>
+          <button class="loginLink" md-raised-button color="warn" routerLink="register">Register</button>
           <curr-time></curr-time>
     </span>
   </md-toolbar>
@@ -48,4 +50,7 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'Pet Shop';
+
+  constructor(private authService: AuthService) {
+  }
 }
