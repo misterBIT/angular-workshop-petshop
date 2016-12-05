@@ -4,7 +4,7 @@ import {ShopFrontComponent} from './shop-front.component';
 import {ShopService} from './shop.service';
 import {ShoppingCartCompoennt} from './shopping-cart-compoenent';
 import {ShopListComponent} from './shop-list.component';
-import {ShopListItemRendererComponent} from './shop-item.compoent';
+import {ShopListItemRendererComponent} from './shop-item-renderer.compoent';
 import {ShopItemDetails} from './shop-detail.component';
 import {RouterModule} from '@angular/router';
 import {shopRoutes} from './shop.routes';

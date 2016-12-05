@@ -5,5 +5,6 @@ import {LoginComponent} from './userAuth/login.component';
 export const appRoutes: Route[] = [
   {path: '', pathMatch: 'full', redirectTo: '/pets'},
   {path: 'pets', component: PetListComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: '**', redirectTo: '/shop'}
 ];

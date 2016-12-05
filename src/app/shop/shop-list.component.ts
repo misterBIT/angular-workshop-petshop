@@ -7,7 +7,8 @@ import {ShopService} from './shop.service';
 export enum ActionTypes { add, edit, delete}
 @Component({
   selector: 'shop-list',
-  styles: [`    .addItemBtn{vertical-align: middle;}`],
+  styles: [`
+    .addItemBtn{vertical-align: middle;}`],
   template: `
 <h3 *ngIf="authService.isLoggedIn">Admin View</h3>
 <md-list>

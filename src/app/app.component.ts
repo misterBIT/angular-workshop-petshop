@@ -3,10 +3,11 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-root',
   styles: [`
+      md-sidenav-layout {height: 100%}
       h1 {flex: 1;color:lightblue;}
       h1 button { vertical-align: text-top;}
       md-toolbar {align-content: space-between;}
-      .md-list-item a {
+      .md-list-item  a {
               color: #1dffab;
       }
       .right {
