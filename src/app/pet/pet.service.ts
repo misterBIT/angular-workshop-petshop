@@ -9,7 +9,6 @@ export class PetService {
 
   addPet(pet: PetModel) {
     this.pets = [...this.pets, pet];
-    console.log('pet added', this.pets);
   }
 
   feed(pet: PetModel) {

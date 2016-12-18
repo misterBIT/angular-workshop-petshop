@@ -13,7 +13,7 @@ export class TimeComponent implements OnInit, OnDestroy{
 
 
     ngOnInit(){
-      this.startClock(); // its better to init in ngOnInit for testability.
+     this.startClock(); // its better to init in ngOnInit for testability.
     }
 
     startClock(){

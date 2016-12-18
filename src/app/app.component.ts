@@ -26,7 +26,7 @@ import {AuthService} from './userAuth/auth.service';
   `],
   template: `
 <md-sidenav-layout>
-  <md-toolbar color="primary">
+  <md-toolbar class="toolbar" color="primary">
     <h1>
         <button md-icon-button (click)="sideNav.toggle()"><md-icon>reorder</md-icon></button>
         <img src="assets/pet/1.png"/>

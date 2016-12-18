@@ -1,14 +1,22 @@
-import { AngularWorkshopPetshopPage } from './app.po';
+import {AngularWorkshopHomePage, waitForUrlToChangeTo} from './app.po';
+import {browser} from 'protractor';
 
-describe('angular-workshop-petshop App', function() {
-  let page: AngularWorkshopPetshopPage;
+describe('angular-workshop-petshop App', function () {
+  let page: AngularWorkshopHomePage;
 
   beforeEach(() => {
-    page = new AngularWorkshopPetshopPage();
+    page = new AngularWorkshopHomePage();
   });
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toContain('Pet Shop');
+  });
+
+  it('should move to login page when clicking the toolbar link', () => {
+    page.navigateTo();
+    let login = page.getLoginLink();
+    login.click();
+    browser.wait(waitForUrlToChangeTo(/\/login/));
   });
 });
