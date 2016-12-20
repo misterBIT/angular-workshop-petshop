@@ -1,6 +1,6 @@
 import {IShopItem} from './shop.types';
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Response} from '@angular/http';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -34,15 +34,15 @@ export class ShopService {
     this.shoppingCart = [...this.shoppingCart, item];
   }
 
-  addItemToShop(item) {
+  addItemToShop(item): Promise<Response> {
     return this.http.post(ShopService.baseUrl, item).toPromise();
   }
 
-  editShopItem(id, data) {
+  editShopItem(id, data): Promise<Response> {
     return this.http.put(ShopService.baseUrl + '/' + id, data).toPromise();
   }
 
-  removeItemFromShop(id) {
+  removeItemFromShop(id): Promise<Response> {
     return this.http.delete(ShopService.baseUrl + '/' + id).toPromise();
   }
 

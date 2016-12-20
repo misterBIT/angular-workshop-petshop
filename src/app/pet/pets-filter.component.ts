@@ -1,6 +1,6 @@
 import {Component, Output, EventEmitter, Input} from '@angular/core';
 import {FilterObject} from './pet.model';
-declare type FilterObj = FilterObject; // silly hack to stop the TS compiler from complaining (a TS/webpack/ts-loader bug)
+export declare type FilterObj = FilterObject; // silly hack to stop the TS compiler from complaining (a TS/webpack/ts-loader bug)
 
 @Component({
   selector: 'pet-filter',

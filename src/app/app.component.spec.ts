@@ -4,7 +4,7 @@ import {TestBed, inject} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 import {By} from "@angular/platform-browser";
 import {AuthService} from './userAuth/auth.service';
-import {RouterLinkStubDirective} from '../testing/router-stubs';
+import {RouterLinkStubDirective} from '../../testing/router-stubs';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {log} from 'util';
 
@@ -21,7 +21,7 @@ describe('AppComponent', () => {
   });
 
   it('should create the app', () => {
-    let fixture = TestBed.createComponent(AppComponent);
+    let fixture = TestBed.crea4200teComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });

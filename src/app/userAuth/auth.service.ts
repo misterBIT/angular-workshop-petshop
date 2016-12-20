@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/do';
-import {Http} from '@angular/http';
+import {Http, Response} from '@angular/http';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class AuthService {
@@ -14,7 +15,7 @@ export class AuthService {
   // store the URL so we can redirect after logging in
   redirectUrl: string;
 
-  login(username, password) {
+  login(username, password): Observable<boolean> {
     return this.http.get(AuthService.baseUrl)
       .map(res => res.json())
       .map((usersList) => {
@@ -26,7 +27,7 @@ export class AuthService {
       });
   }
 
-  register(user) {
+  register(user): Promise<Response> {
     return this.http.post(AuthService.baseUrl, user).toPromise();
   }
 

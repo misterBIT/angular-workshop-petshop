@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
-import {FormBuilder, Validators, AbstractControl} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthService} from './auth.service';
-import {userFieldsValidationSchema} from './user.model';
-function validatePasswordRetype(c: AbstractControl) {
+function validatePasswordRetype(c: any) {
   debugger;
 }
 @Component({
@@ -45,14 +44,15 @@ export class UserRegistrationComponent {
     return control.touched && control.status === 'INVALID';
   }
 
-  userForm = this.fb.group({
-    username: ['', userFieldsValidationSchema.username],
-    password: ['', userFieldsValidationSchema.password],
-    repeat_password: ['', userFieldsValidationSchema.repeatPassword],
+
+  userForm: FormGroup = this.fb.group({
+    username: ['', Validators.required],
+    password: ['', [Validators.required, Validators.minLength(5)]],
+    repeat_password: ['', Validators.required],
     address: this.fb.group({
-      street: ['', userFieldsValidationSchema.address_street],
-      city: ['', userFieldsValidationSchema.address_city],
-      zip: ['', userFieldsValidationSchema.address_zip]
+      street: ['', Validators.required],
+      city: ['', Validators.required],
+      zip: ['', [Validators.required, Validators.pattern(/\d{5,7}/)]]
     })
   }, {password: validatePasswordRetype});
 
