@@ -4,7 +4,6 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {PetModule} from './pet/pet.module';
 import {TimeModule} from './time/time.module';
-import {ShopModule} from './shop/shop.module';
 import {MaterialModule} from '@angular/material';
 import 'hammerjs';
 import {RouterModule} from '@angular/router';
@@ -24,7 +23,6 @@ import {SharedModule} from './shared/shared.module';
     TimeModule,
     UserAuthModule,
     HttpModule,
-    ShopModule,
     BrowserModule,
     MaterialModule.forRoot()
   ],

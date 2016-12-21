@@ -5,7 +5,7 @@ import {ShopAdminItemEditComponent} from '../shopAdmin/shop-admin-item-edit.comp
 import {AuthGuard} from '../userAuth/auth.guard';
 export const shopRoutes: Route[] = [
   {
-    path: 'shop', children: [
+    path: '', children: [
     {path: '', component: ShopFrontComponent},
     {path: 'detail/:id', component: ShopItemDetails},
     {
