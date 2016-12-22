@@ -12,8 +12,8 @@ import {IShopItem} from './shop.types';
 <img md-card-avatar [src]="getRandomImage()"/>
 </md-card-header>
 <md-card-content>
- <img md-card-lg-image [src]="getRandomImage()">
-<h3>{{item?.price|currency:'USD':true}}</h3>
+<button (click)="goToExtra()">Show extra details</button>
+<router-outlet></router-outlet>
 </md-card-content>
 <md-card-actions>
 <button md-raised-button (click)="buyItem()">Buy</button>
@@ -24,9 +24,11 @@ import {IShopItem} from './shop.types';
 export class ShopItemDetails implements OnInit {
   item: IShopItem;
 
-  constructor(private activeRoute: ActivatedRoute, private shopService: ShopService, private router: Router) {
+  constructor(private router:Router,private activeRoute: ActivatedRoute, private shopService: ShopService) {
   }
-
+goToExtra(){
+    this.router.navigate(['./extra'],{relativeTo:this.activeRoute,skipLocationChange:true})
+}
   getRandomImage() {
     let title = 'animals';
     if (this.item) {
