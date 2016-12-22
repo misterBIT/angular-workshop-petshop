@@ -10,8 +10,9 @@ import {RouterModule} from '@angular/router';
 import {shopRoutes} from './shop.routes';
 import {ShopAdminItemEditComponent} from '../shopAdmin/shop-admin-item-edit.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ShopItemResolver} from './shop-item.resolver';
 @NgModule({
-  providers: [ShopService],
+  providers: [ShopService,ShopItemResolver],
   declarations: [ShopFrontComponent, ShoppingCartCompoennt, ShopListComponent, ShopListItemRendererComponent, ShopItemDetails, ShopAdminItemEditComponent],
   imports: [SharedModule, RouterModule.forChild(shopRoutes), ReactiveFormsModule],
   exports: [ShopFrontComponent],

@@ -36,12 +36,10 @@ export class ShopItemDetails implements OnInit {
   }
 
   ngOnInit() {
-    this.activeRoute.params
-      .map((params) => params['id'])
-      .subscribe((id) => {
-        this.shopService.get(id).then(item => {
-          this.item = item;
-        })
+    this.activeRoute.data
+      .map((data) => data['shopItem'])
+      .subscribe((item) => {
+        this.item = item;
       });
   }
 

@@ -48,15 +48,9 @@ export class ShopAdminItemEditComponent implements OnInit {
 
   ngOnInit() {
     this.itemForm = this.fb.group({title: ['', Validators.required], price: [0, Validators.required]});
-    let id = this.activateRoute.snapshot.params['id'];
-    if (typeof id !== 'undefined') {
-      this.shopService.get(id).then((item: IShopItem) => {
-        this.isEdit = true;
-        this.itemForm.addControl('_id', new FormControl(item._id));
-        this.itemForm.setValue(item);
-      });
-    }
-
-
+    let item = this.activateRoute.snapshot.data['shopItem'];
+    this.isEdit = true;
+    this.itemForm.addControl('_id', new FormControl(item._id));
+    this.itemForm.setValue(item);
   }
 }
